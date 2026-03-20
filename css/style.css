@@ -1,18 +1,23 @@
 /* ============================================
    Prosocial Design — Style System
-   Bold & Activist. High contrast. Manifesto energy.
+   Bright, optimistic. 60s/70s rainbow motif.
    ============================================ */
 
 :root {
-  --bg: #0a0a0a;
-  --bg-raised: #141414;
-  --text: #f0f0f0;
-  --text-muted: #999;
-  --accent: #00e5a0;
-  --accent-dim: #00c488;
+  --bg: #faf8f5;
+  --bg-raised: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --accent: #d35400;
+  --accent-hover: #b94800;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --max-width: 960px;
+
+  /* arc colors — site key colors */
+  --arc-1: #9b59b6;
+  --arc-2: #e84393;
+  --arc-3: #2ecc71;
 }
 
 *, *::before, *::after {
@@ -33,6 +38,49 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* ---- Retro groovy rainbow arcs ---- */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at -10% 50%,
+      transparent 500px,
+      var(--arc-3) 500px, var(--arc-3) 560px,
+      transparent 560px,
+      transparent 590px,
+      var(--arc-2) 590px, var(--arc-2) 650px,
+      transparent 650px,
+      transparent 680px,
+      var(--arc-1) 680px, var(--arc-1) 740px,
+      transparent 740px
+    ),
+    radial-gradient(circle at 110% 85%,
+      transparent 400px,
+      var(--arc-1) 400px, var(--arc-1) 460px,
+      transparent 460px,
+      transparent 490px,
+      var(--arc-2) 490px, var(--arc-2) 550px,
+      transparent 550px,
+      transparent 580px,
+      var(--arc-3) 580px, var(--arc-3) 640px,
+      transparent 640px
+    );
+  opacity: 0.18;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -57,10 +105,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(250, 248, 245, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .nav-wordmark {
@@ -124,10 +172,14 @@ section {
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
+  color: var(--text);
 }
 
 .hero h1 .accent {
-  color: var(--accent);
+  background: linear-gradient(135deg, var(--arc-1), var(--arc-2), var(--arc-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-tagline {
@@ -152,14 +204,23 @@ section {
 
 .hero-cta:hover {
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
   opacity: 1;
+}
+
+/* ---- Divider — rainbow stripe ---- */
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--arc-1), var(--arc-2), var(--arc-3));
+  border: none;
+  margin: 0;
 }
 
 /* ---- Mission ---- */
 
 .mission {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .mission h2 {
@@ -190,7 +251,7 @@ section {
 /* ---- Product (VanChat) ---- */
 
 .product {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .product h2 {
@@ -217,8 +278,10 @@ section {
 
 .principle {
   background: var(--bg-raised);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .principle h3 {
@@ -240,24 +303,25 @@ section {
 .product-cta {
   display: inline-block;
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
   padding: 0.9rem 2.5rem;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-radius: 4px;
   transition: background 0.25s;
 }
 
 .product-cta:hover {
-  background: var(--accent-dim);
+  background: var(--accent-hover);
   opacity: 1;
 }
 
-/* ---- Team ---- */
+/* ---- Founders ---- */
 
 .team {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .team h2 {
@@ -277,8 +341,7 @@ section {
 .team-avatar {
   width: 80px;
   height: 80px;
-  background: var(--bg-raised);
-  border: 2px solid var(--accent);
+  background: linear-gradient(135deg, var(--arc-3), var(--arc-2), var(--arc-1));
   border-radius: 50%;
   flex-shrink: 0;
   display: flex;
@@ -287,7 +350,7 @@ section {
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--accent);
+  color: #fff;
 }
 
 .team-info h3 {
@@ -321,7 +384,7 @@ section {
 /* ---- Footer ---- */
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding: 3rem 2rem;
 }
 
