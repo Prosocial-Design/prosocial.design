@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prosocial Design Co. — A design lab for healthier social spaces</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F7F5F1;
+    color: #141516;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-serif { font-family: Georgia, "Iowan Old Style", "Times New Roman", Times, serif; }
+  p { line-height: 1.75; }
+  .paper-noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hairline { border-color: rgba(20,21,22,0.08); }
+  .card {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(20,21,22,0.08);
+    transition: all .3s ease;
+  }
+  .card:hover {
+    background: rgba(255,255,255,0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(20,21,22,0.04);
+  }
+  .fade-in { opacity: 0; transform: translateY(12px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="relative">
+<div class="paper-noise"></div>
+
+<header class="sticky top-0 z-40 border-b hairline bg-[#F7F5F1]/80 backdrop-blur-xl">
+  <div class="max-w-[1160px] mx-auto px-6 md:px-8 h-[70px] flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3 relative z-10">
+      <div class="w-7 h-7 rounded-full border hairline flex items-center justify-center">
+        <div class="w-2.5 h-2.5 rounded-full bg-[#3F5D4C]"></div>
+      </div>
+      <span class="font-serif text-[17px] tracking-tight">Prosocial Design Co.</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[14px] text-[#5B6B7A]">
+      <a href="#mission" class="hover:text-[#141516] transition">Mission</a>
+      <a href="#principles" class="hover:text-[#141516] transition">Principles</a>
+      <a href="#work" class="hover:text-[#141516] transition">Work</a>
+      <a href="#founders" class="hover:text-[#141516] transition">Founders</a>
+      <a href="#writing" class="hover:text-[#141516] transition">Writing</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden p-2 -mr-2 text-[#5B6B7A]" aria-label="Open menu">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileNav" class="md:hidden hidden border-t hairline bg-[#F7F5F1]">
+    <div class="px-6 py-4 flex flex-col gap-4 text-[15px] text-[#5B6B7A]">
+      <a href="#mission" class="py-1">Mission</a>
+      <a href="#principles" class="py-1">Principles</a>
+      <a href="#work" class="py-1">Work</a>
+      <a href="#founders" class="py-1">Founders</a>
+      <a href="#writing" class="py-1">Writing</a>
+    </div>
+  </div>
+</header>
+
+<main class="relative z-10">
+  <!-- Hero -->
+  <section class="relative">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8">
+      <div class="min-h-[88vh] flex flex-col items-center justify-center text-center pt-28 pb-20">
+        <div class="fade-in inline-flex items-center gap-2 px-3 py-1.5 rounded-full border hairline text-[11px] uppercase tracking-[0.14em] text-[#5B6B7A] mb-10 bg-white/40">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C8A97E]"></span>
+          A design lab for healthier social spaces
+        </div>
+        <h1 class="fade-in font-serif text-[clamp(42px,7.2vw,86px)] leading-[0.92] tracking-[-0.02em] max-w-[900px]">Technology can bring out the best in us.</h1>
+        <p class="fade-in mt-8 max-w-[680px] text-[18px] md:text-[20px] leading-relaxed text-[#5B6B7A]">We believe social media is still a first draft. At Prosocial Design Co., we explore what comes next — the technologies, policies, and design decisions that shape how we gather online, and whether those spaces help us thrive.</p>
+        <div class="mt-24 flex flex-col items-center gap-3">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-[#5B6B7A]/60">Scroll</span>
+          <div class="w-[1px] h-14 bg-gradient-to-b from-[#5B6B7A]/40 to-transparent animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission" class="border-t hairline scroll-mt-24">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-24 md:py-36">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-3">
+          <div class="text-[11px] uppercase tracking-[0.18em] text-[#5B6B7A]/70 md:sticky md:top-28">Mission</div>
+        </div>
+        <div class="md:col-span-9">
+          <blockquote class="fade-in font-serif text-[28px] md:text-[40px] lg:text-[48px] leading-[1.22] tracking-[-0.01em]">
+            “Humans are innately social. We believe the best days of social media are ahead of us.”
+            <span class="text-[#5B6B7A]">What technologies power that future? What policies protect users? What design decisions lead us there? We think we can get there sooner.</span>
+          </blockquote>
+          <div class="mt-12 flex items-center gap-4">
+            <div class="h-[1px] w-12 bg-[#C8A97E]/70"></div>
+            <p class="text-[13px] text-[#5B6B7A]">Independent, research-first · Est. 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section id="principles" class="border-t hairline bg-white/30 scroll-mt-24">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-24 md:py-32">
+      <div class="max-w-2xl mb-16 fade-in">
+        <h2 class="font-serif text-[34px] md:text-[48px] leading-[1.1] tracking-tight">Three starting principles</h2>
+        <p class="mt-4 text-[#5B6B7A] text-[17px] leading-relaxed">Not a product roadmap. The commitments we carry into every experiment.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-7">
+        <div class="card rounded-[22px] p-8 md:p-10 fade-in">
+          <div class="text-[11px] uppercase tracking-widest text-[#3F5D4C] mb-7">01</div>
+          <h3 class="font-serif text-[26px] leading-snug mb-4">Design for dignity</h3>
+          <p class="text-[15px] leading-[1.7] text-[#5B6B7A]">Privacy by default. Consentful presence. Tools that don't monetize outrage. We start with the assumption that people are trying to connect, not perform — and build systems that protect that impulse.</p>
+        </div>
+        <div class="card rounded-[22px] p-8 md:p-10 fade-in" style="transition-delay: .1s">
+          <div class="text-[11px] uppercase tracking-widest text-[#3F5D4C] mb-7">02</div>
+          <h3 class="font-serif text-[26px] leading-snug mb-4">Design for repair</h3>
+          <p class="text-[15px] leading-[1.7] text-[#5B6B7A]">Healthy communities need ways to mend, not just moderate. We study norms, restorative practices, and governance at human scale — where conflict can be resolved and trust rebuilt.</p>
+        </div>
+        <div class="card rounded-[22px] p-8 md:p-10 fade-in" style="transition-delay: .2s">
+          <div class="text-[11px] uppercase tracking-widest text-[#3F5D4C] mb-7">03</div>
+          <h3 class="font-serif text-[26px] leading-snug mb-4">Design for place</h3>
+          <p class="text-[15px] leading-[1.7] text-[#5B6B7A]">Scale erodes context. We prefer bounded, legible spaces with clear jurisdiction — where members know who sets the rules and why. Think neighborhoods, not highways. Places, not feeds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="border-t hairline scroll-mt-24">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-24 md:py-32">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-4 fade-in">
+          <h2 class="font-serif text-[32px] md:text-[40px] leading-tight">Our work</h2>
+          <p class="mt-4 text-[#5B6B7A] leading-relaxed">We build lightweight research vehicles, publish what we learn, and open-source what’s useful. One exploration at a time.</p>
+        </div>
+        <div class="lg:col-span-8">
+          <div class="card rounded-[24px] p-8 md:p-10 fade-in">
+            <div class="flex items-start justify-between gap-6 flex-wrap">
+              <div>
+                <div class="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#3F5D4C] mb-4">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#3F5D4C] animate-pulse"></span>
+                  Current exploration
+                </div>
+                <h3 class="font-serif text-[28px]">VanChat</h3>
+                <p class="mt-3 text-[16px] leading-relaxed text-[#5B6B7A] max-w-[560px]">Small, ephemeral spaces for friends. A research vehicle for momentary conversation — built to test how timing, size, and lightness affect trust and talk.</p>
+              </div>
+              <div class="text-[12px] text-[#5B6B7A]/70 pt-1">2024–</div>
+            </div>
+            <div class="mt-8 pt-6 border-t hairline flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-[#5B6B7A]/80">
+              <span>Prototype in the wild</span>
+              <span class="opacity-30">•</span>
+              <span>Privacy-first architecture</span>
+              <span class="opacity-30">•</span>
+              <span>Canadian infrastructure</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-6">
+            <div class="rounded-[20px] border border-dashed hairline p-6 bg-white/20 fade-in">
+              <div class="text-[11px] uppercase tracking-widest text-[#5B6B7A]/70 mb-2">Next study</div>
+              <p class="text-[14px] leading-snug text-[#141516]/80">Governance patterns for groups under 150. What roles, rituals, and tools help small communities self-regulate?</p>
+            </div>
+            <div class="rounded-[20px] border border-dashed hairline p-6 bg-white/20 fade-in">
+              <div class="text-[11px] uppercase tracking-widest text-[#5B6B7A]/70 mb-2">Future inquiry</div>
+              <p class="text-[14px] leading-snug text-[#141516]/80">Designing memory without surveillance. How might communities remember together without permanent records?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders -->
+  <section id="founders" class="border-t hairline bg-white/30 scroll-mt-24">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-24 md:py-32">
+      <div class="max-w-2xl mb-16 fade-in">
+        <h2 class="font-serif text-[34px] md:text-[48px] leading-[1.1]">Founders</h2>
+        <p class="mt-4 text-[#5B6B7A]">A practice built on two decades of building social systems — at planetary scale, and at human scale.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-14 md:gap-16">
+        <div class="flex gap-6 fade-in">
+          <div class="w-20 h-20 rounded-full bg-[#E9E4DB] border hairline flex items-center justify-center font-serif text-[28px] text-[#3F5D4C] shrink-0">A</div>
+          <div>
+            <h3 class="font-serif text-[24px] leading-tight">Andy Moore</h3>
+            <p class="text-[12px] uppercase tracking-widest text-[#3F5D4C] mt-1">Founder & CTO</p>
+            <p class="mt-4 text-[15px] leading-[1.7] text-[#5B6B7A]">Andy has built social infrastructure used by millions — from early community platforms to large-scale messaging and trust systems. He cares deeply about privacy, resilience, and building technology that disappears into the background of good conversation.</p>
+            <a href="https://linkedin.com" target="_blank" class="inline-flex items-center gap-1 mt-4 text-[13px] hover:text-[#3F5D4C] transition">LinkedIn <span aria-hidden>↗</span></a>
+          </div>
+        </div>
+
+        <div class="flex gap-6 fade-in" style="transition-delay: .1s">
+          <div class="w-20 h-20 rounded-full bg-[#E9E4DB] border hairline flex items-center justify-center font-serif text-[28px] text-[#3F5D4C] shrink-0">R</div>
+          <div>
+            <h3 class="font-serif text-[24px] leading-tight">Robin Stethem</h3>
+            <p class="text-[12px] uppercase tracking-widest text-[#3F5D4C] mt-1">CEO</p>
+            <p class="mt-4 text-[15px] leading-[1.7] text-[#5B6B7A]">Robin founded the Museum of Other Realities, the pioneering immersive arts space in VR, and has spent a decade designing for presence, play, and shared culture online. He brings a curator’s sensibility to social software: how spaces feel, not just how they function.</p>
+            <a href="https://linkedin.com" target="_blank" class="inline-flex items-center gap-1 mt-4 text-[13px] hover:text-[#3F5D4C] transition">LinkedIn <span aria-hidden>↗</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 md:mt-28 max-w-[800px] border-l-2 border-[#C8A97E]/50 pl-6 md:pl-8 fade-in">
+        <p class="font-serif text-[20px] md:text-[22px] leading-[1.5] text-[#141516]/90">We work together because we’ve seen both sides: platforms that scale too fast and lose their humanity, and beautiful experiments that never reach people. Large-scale community systems meets immersive, intentional spaces. That intersection is where prosocial design lives.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing / Principles in practice -->
+  <section id="writing" class="border-t hairline scroll-mt-24">
+    <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-24 md:py-32">
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-4 fade-in">
+          <h2 class="font-serif text-[32px] md:text-[40px] leading-tight">Principles in practice</h2>
+          <p class="mt-4 text-[15px] leading-relaxed text-[#5B6B7A]">A living lab notebook. We work in public, in questions.</p>
+        </div>
+        <div class="lg:col-span-8">
+          <div class="border-y hairline divide-y hairline">
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">01</span><p class="text-[17px] leading-snug">What if ephemerality was the default, not a mode?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">02</span><p class="text-[17px] leading-snug">Can small-group jurisdiction reduce the need for centralized moderation?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">03</span><p class="text-[17px] leading-snug">How might we design for repair instead of removal?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">04</span><p class="text-[17px] leading-snug">What social contracts become legible when a space has clear edges?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">05</span><p class="text-[17px] leading-snug">Does designing for downtime increase trust over time?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">06</span><p class="text-[17px] leading-snug">What policies protect intimate conversation without creating surveillance?</p></div>
+            <div class="py-5 flex gap-5 fade-in"><span class="font-serif text-[#C8A97E] mt-0.5">07</span><p class="text-[17px] leading-snug">How do we measure health in a community that isn’t optimizing for time spent?</p></div>
+          </div>
+          <p class="mt-8 text-[13px] text-[#5B6B7A]/70">We publish notes irregularly. No newsletter, no tracking pixels, no growth hacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t hairline relative z-10">
+  <div class="max-w-[1160px] mx-auto px-6 md:px-8 py-12">
+    <div class="flex flex-col md:flex-row items-start justify-between gap-8">
+      <div>
+        <div class="font-serif text-[18px] tracking-tight">Prosocial Design Co.</div>
+        <p class="mt-3 text-[14px] leading-relaxed text-[#5B6B7A]">
+          Toronto · Montreal<br>
+          <a href="mailto:hello@prosocialdesign.co" class="underline decoration-[#141516]/20 underline-offset-4 hover:decoration-[#141516]">hello@prosocialdesign.co</a>
+        </p>
+      </div>
+      <div class="text-[12px] leading-relaxed text-[#5B6B7A]/80 md:text-right">
+        <p>An independent research lab. Not affiliated with Prosocial Design Network.</p>
+        <p class="mt-1">© 2025 Prosocial Design Co.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn?.addEventListener('click', () => {
+    mobileNav.classList.toggle('hidden');
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileNav.classList.add('hidden'));
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
